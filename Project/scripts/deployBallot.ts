@@ -42,7 +42,8 @@ async function main() {
     signer
   );
   const ballotContract = await ballotFactory.deploy(
-    convertStringArrayToBytes32(proposals)
+    convertStringArrayToBytes32(proposals),
+    process.env.TOKEN_ADDRESS
   );
   console.log("Awaiting confirmations");
   await ballotContract.deployed();
